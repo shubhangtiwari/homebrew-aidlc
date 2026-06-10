@@ -1,8 +1,8 @@
 class Aidlc < Formula
   desc "Initialize and update AIDLC governance files"
   homepage "https://github.com/shubhangtiwari/aidlc"
-  url "https://github.com/shubhangtiwari/aidlc/archive/refs/tags/aidlc/v0.6.0.tar.gz"
-  sha256 "2bbb9f20d3934a9aab06f0523be26e97afbfa4eda03f3cfa94ff5460c3302d1f"
+  url "https://github.com/shubhangtiwari/aidlc/archive/refs/tags/aidlc/v0.7.0.tar.gz"
+  sha256 "fa362b240674f1f1a8fceffd159f3ffe83c8917c23c32ed6ee942acc224d8f87"
   license "MIT"
 
   depends_on "go" => :build
