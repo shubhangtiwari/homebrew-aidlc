@@ -29,16 +29,16 @@ commands for the tap.
 | Local install command | `make tap` then `make install` |
 | Installed binary | `aidlc` |
 | Smoke-test command | `aidlc version` or `make run` |
-| Current upstream tag | `aidlc/v0.8.0` |
-| Formula version | `0.8.0`, derived from the verified upstream tag |
-| Source archive | `https://github.com/shubhangtiwari/aidlc/archive/refs/tags/aidlc/v0.8.0.tar.gz` |
-| Source checksum | `9148fd1e4cf6c8d5c15623630fa6826bb4668d5dc75c4d1d187d71387bbd84a9` |
+| Current upstream tag | `aidlc/v0.8.1` |
+| Formula version | `0.8.1`, derived from the verified upstream tag |
+| Source archive | `https://github.com/shubhangtiwari/aidlc/archive/refs/tags/aidlc/v0.8.1.tar.gz` |
+| Source checksum | `019b6fa6ca7bbb397f4711d1e225143c70d49268a33a78b142ffe1cf61556310` |
 | License | `MIT` |
 
 The formula builds from the nested upstream Go module at `aidlc/` in the release archive. The
 installed binary must report meaningful version metadata; for the current formula, the Go linker
 sets `github.com/shubhangtiwari/aidlc/aidlc/internal/commands.Version` to the Homebrew formula
-version, and the formula test asserts `aidlc 0.8.0` style output from `aidlc version`.
+version, and the formula test asserts `aidlc 0.8.1` style output from `aidlc version`.
 
 Formula updates must use a remotely verifiable upstream tag, a stable GitHub source archive URL, and
 the SHA256 checksum for that exact archive. Placeholder checksums, local-only tags, and versions
