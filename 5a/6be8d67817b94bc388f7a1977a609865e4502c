@@ -1,0 +1,19 @@
+Formula/aidlc.rb
+  s_5c0fccb28b2520::t_53c24b64452b24 4-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "5a6be8d67817b94bc388f7a1977a609865e4502c",
+  "prompts": {},
+  "sessions": {
+    "s_5c0fccb28b2520": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0f957-0ac2-7c20-9d8c-aa69904c38ff",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Shubhang Tiwari <shubh.bitsmith@gmail.com>"
+    }
+  }
+}
