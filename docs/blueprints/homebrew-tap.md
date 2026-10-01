@@ -29,16 +29,16 @@ commands for the tap.
 | Local install command | `make tap` then `make install` |
 | Installed binary | `aidlc` |
 | Smoke-test command | `aidlc version` or `make run` |
-| Current upstream tag | `aidlc/v0.13.0` |
-| Formula version | `0.13.0`, derived from the verified upstream tag |
-| Source archive | `https://github.com/shubhangtiwari/aidlc/archive/refs/tags/aidlc/v0.13.0.tar.gz` |
-| Source checksum | `502c63c54de8491409f9523ab5294bcd50a75201c8f4ef1d595a4f8571f127d2` |
+| Current upstream tag | `aidlc/v0.14.0` |
+| Formula version | `0.14.0`, derived from the verified upstream tag |
+| Source archive | `https://github.com/shubhangtiwari/aidlc/archive/refs/tags/aidlc/v0.14.0.tar.gz` |
+| Source checksum | `c3ea99c80bd402b46372a2719b73c894eac8ed7d3e76865c97362ca6020f3e63` |
 | License | `MIT` |
 
 The formula builds from the nested upstream Go module at `aidlc/` in the release archive. The
 installed binary must report meaningful version metadata; for the current formula, the Go linker
 sets `github.com/shubhangtiwari/aidlc/aidlc/internal/commands.Version` to the Homebrew formula
-version, and the formula test asserts `aidlc 0.13.0` style output from `aidlc version`.
+version, and the formula test asserts `aidlc 0.14.0` style output from `aidlc version`.
 
 Formula updates must use a remotely verifiable upstream tag, a stable GitHub source archive URL, and
 the SHA256 checksum for that exact archive. Placeholder checksums, local-only tags, and versions
@@ -78,6 +78,7 @@ Formula, command-surface, and blueprint changes for this module must run through
 | `make test` | Runs `make lint`, installs `shubhangtiwari/aidlc/aidlc` from source, and runs `brew test shubhangtiwari/aidlc/aidlc`. |
 | `make install` | Registers this checkout as the local tap and installs the local formula from source. |
 | `make run` | Runs the installed `aidlc version` smoke test. |
+| `make checksum URL=...` | Downloads a release archive URL to a temporary file and prints the SHA256 for the exact downloaded bytes. |
 
 All Homebrew verification for this tap must stay wrapped by the root `Makefile`; do not introduce
 ad hoc scripts or direct-only verification commands as the documented gate.

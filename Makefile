@@ -7,8 +7,9 @@ FORMULA ?= Formula/aidlc.rb
 FORMULA_NAME ?= aidlc
 TAP ?= shubhangtiwari/aidlc
 TAP_FORMULA ?= $(TAP)/$(FORMULA_NAME)
+URL ?=
 
-.PHONY: help init update finalize-spec tap install upgrade uninstall run lint test check-formula claude codex cursor copilot windsurf all
+.PHONY: help init update finalize-spec tap install upgrade uninstall run lint test checksum check-formula claude codex cursor copilot windsurf all
 
 help:
 	@printf '%s\n' 'Usage: make <target> [ARGS="..."]'
@@ -26,6 +27,7 @@ help:
 	@printf '%s\n' '  make run              Run the installed aidlc smoke test'
 	@printf '%s\n' '  make lint             Audit the tap and style-check the formula'
 	@printf '%s\n' '  make test             Audit, style, install, and test the local formula'
+	@printf '%s\n' '  make checksum URL=... Print SHA256 for a release archive URL'
 
 init:
 	@ide="$(filter-out $@,$(MAKECMDGOALS))"; \
@@ -79,6 +81,17 @@ lint: check-formula tap
 test: lint
 	$(BREW) install --build-from-source $(TAP_FORMULA)
 	$(BREW) test $(TAP_FORMULA)
+
+checksum:
+	@if [ -z "$(URL)" ]; then \
+		printf '%s\n' 'usage: make checksum URL=https://...'; \
+		exit 2; \
+	fi
+	@set -e; \
+	tmp="$$(mktemp "$${TMPDIR:-/tmp}/aidlc-source.XXXXXX.tar.gz")"; \
+	trap 'rm -f "$$tmp"' EXIT; \
+	curl --fail --location --silent --show-error "$(URL)" --output "$$tmp"; \
+	shasum -a 256 "$$tmp" | awk '{print $$1}'
 
 check-formula:
 	@if [ ! -f "$(FORMULA)" ]; then \
